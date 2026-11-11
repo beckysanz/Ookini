@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ookini - Café de Especialidad & Artesanía Japonesa</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display (Serif elegante) e Inter (Sans-serif limpia) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Configuración personalizada de Tailwind con la paleta Terra / Japonesa Artesanal -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terra: {
+                            terracota: '#C85A32',
+                            'terracota-dark': '#A34321',
+                            cafe: '#4A3525',
+                            'cafe-dark': '#2E2016',
+                            crema: '#F7F4EF',
+                            pergamino: '#EFE8DC',
+                            matcha: '#6B7A59',
+                            'matcha-dark': '#525F44',
+                            arcilla: '#D99B82',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados adicionales */
+        body {
+            background-color: #F7F4EF;
+            color: #4A3525;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-kanji-watermark {
+            background-image: radial-gradient(#C85A32 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+            opacity: 0.08;
+        }
+        /* Modal personalizado */
+        .modal-active {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body class="bg-terra-crema text-terra-cafe antialiased selection:bg-terra-terracota selection:text-white">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="sticky top-0 z-40 bg-terra-crema/90 backdrop-blur-md border-b border-terra-pergamino transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo con kanji -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full bg-terra-terracota text-terra-crema flex items-center justify-center font-serif text-xl font-bold transition-transform group-hover:scale-105">
+                        大
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-wider text-terra-cafe block leading-none">OOKINI</span>
+                        <span class="text-[10px] tracking-widest uppercase text-terra-matcha font-semibold">Specialty Coffee</span>
+                    </div>
+                </a>
+
+                <!-- Menú Desktop -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#historia" class="hover:text-terra-terracota transition-colors">Nuestra Historia</a>
+                    <a href="#prensa" class="hover:text-terra-terracota transition-colors">Prensa Francesa</a>
+                    <a href="#especiales" class="hover:text-terra-terracota transition-colors">Métodos Especiales</a>
+                    <a href="#cata" class="hover:text-terra-terracota transition-colors">Cata Semanal</a>
+                    <a href="#contacto" class="hover:text-terra-terracota transition-colors">Horarios</a>
+                </nav>
+
+                <!-- Botón Acción Directa -->
+                <div class="hidden sm:block">
+                    <a href="#especiales" class="bg-terra-terracota hover:bg-terra-terracota-dark text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-all shadow-md hover:shadow-lg flex items-center space-x-2">
+                        <i class="fa-solid fa-mug-hot text-xs"></i>
+                        <span>Reservar Taza</span>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <button id="mobile-menu-btn" class="md:hidden text-terra-cafe p-2 focus:outline-none" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-terra-pergamino border-b border-terra-cafe/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#historia" class="block py-2 text-terra-cafe font-medium hover:text-terra-terracota">Nuestra Historia</a>
+            <a href="#prensa" class="block py-2 text-terra-cafe font-medium hover:text-terra-terracota">Prensa Francesa (Walk-in)</a>
+            <a href="#especiales" class="block py-2 text-terra-cafe font-medium hover:text-terra-terracota">Métodos Especiales con Reserva</a>
+            <a href="#cata" class="block py-2 text-terra-cafe font-medium hover:text-terra-terracota">Cata Semanal</a>
+            <a href="#contacto" class="block py-2 text-terra-cafe font-medium hover:text-terra-terracota">Ubicación y Horarios</a>
+            <a href="#especiales" class="block text-center bg-terra-terracota text-white py-2.5 rounded-lg font-medium">Reservar Taza Especial</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden py-16 md:py-24 border-b border-terra-pergamino">
+        <div class="absolute inset-0 bg-kanji-watermark pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Texto Principal -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-terra-pergamino px-3.5 py-1.5 rounded-full border border-terra-arcilla/30 text-xs font-semibold text-terra-matcha-dark">
+                        <span class="w-2 h-2 rounded-full bg-terra-terracota animate-pulse"></span>
+                        <span>Inspirado en la artesanía de Kioto</span>
+                    </div>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-terra-cafe leading-tight">
+                        Un ritual de paciencia en cada gota.
+                    </h1>
+                    <p class="text-base sm:text-lg text-terra-cafe/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        "Ookini" es nuestra forma de darte las gracias en dialecto Kansai. Nos especializamos en extracciones lentas, de origen trazable, rindiendo homenaje a la tradición del café de especialidad de Kioto.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#especiales" class="w-full sm:w-auto bg-terra-terracota hover:bg-terra-terracota-dark text-white font-medium px-8 py-3.5 rounded-xl transition-all shadow-md text-center">
+                            Reservar Preparación Especial
+                        </a>
+                        <a href="#prensa" class="w-full sm:w-auto bg-transparent border border-terra-cafe/30 hover:border-terra-cafe text-terra-cafe font-medium px-8 py-3.5 rounded-xl transition-all text-center">
+                            Ver Menú Walk-in
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ilustración / Tarjeta Destacada -->
+                <div class="lg:col-span-5">
+                    <div class="bg-terra-pergamino p-6 sm:p-8 rounded-2xl border border-terra-arcilla/30 shadow-xl relative">
+                        <div class="absolute -top-4 -right-4 bg-terra-matcha text-white text-xs px-3 py-1 rounded-full font-semibold shadow">
+                            Método Estrella
+                        </div>
+                        <div class="text-center p-6 bg-terra-crema rounded-xl border border-terra-pergamino">
+                            <i class="fa-solid fa-glass-water-droplet text-5xl text-terra-terracota mb-4"></i>
+                            <h2 class="font-serif text-2xl font-bold text-terra-cafe">Kyoto Drip</h2>
+                            <p class="text-xs uppercase tracking-widest text-terra-matcha my-2 font-bold">Gota a Gota • Extracción Fría</p>
+                            <p class="text-sm text-terra-cafe/70 mt-2">
+                                8 a 12 horas de infusión helada para revelar notas sutiles y licorosas sin acidez amarga.
+                            </p>
+                            <div class="mt-6 pt-4 border-t border-terra-pergamino flex justify-between items-center text-sm">
+                                <span class="font-semibold text-terra-cafe">Precio por taza:</span>
+                                <span class="font-serif text-xl font-bold text-terra-terracota">$7 USD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORIA Y FILOSOFÍA -->
+    <section id="historia" class="py-16 md:py-24 bg-terra-pergamino/50 border-b border-terra-pergamino">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <span class="text-terra-terracota font-serif text-lg italic block">おおきに • Gracias</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-terra-cafe">La Filosofía DETRÁS DE OOKINI</h2>
+            <p class="text-terra-cafe/80 text-base sm:text-lg leading-relaxed">
+                En la región de Kansai (Japón), donde Kioto florece como el corazón cultural del país, <strong>"Ookini"</strong> es más que un simple "gracias". Es una expresión cálida de gratitud y respeto mutuo.
+            </p>
+            <p class="text-terra-cafe/80 text-base sm:text-lg leading-relaxed">
+                Kioto dio origen al famoso método <em>Kyoto drip</em> (extracción lenta por goteo helado). Adoptamos esa misma devoción por el tiempo, el detalle y la precisión artesanal. Cada taza que servimos representa nuestro agradecimiento por permitirnos compartir este ritual contigo.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PRENSA FRANCESA (WALK-IN) -->
+    <section id="prensa" class="py-16 bg-terra-crema border-b border-terra-pergamino">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-terra-cafe text-terra-crema rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-terra-crema text-9xl font-serif">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="md:col-span-8 space-y-4">
+                        <div class="inline-block bg-terra-matcha text-terra-crema text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold">
+                            Servicio Continuo • Sin Reserva
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold">Prensa Francesa (Walk-in)</h2>
+                        <p class="text-terra-crema/80 text-sm sm:text-base leading-relaxed">
+                            ¿Buscas un café artesanal reconfortante sin necesidad de reservar con anticipación? Visítanos directamente. Extraemos nuestra Prensa Francesa con granos de tueste medio, logrando un cuerpo denso, aromático y rico en aceites naturales.
+                        </p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-terra-crema/90 pt-2">
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-terra-arcilla"></i>
+                                <span><strong>Sin límite de tazas</strong> por persona.</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-terra-arcilla"></i>
+                                <span><strong>Disponible todo el día:</strong> De 8:00 a.m. a 8:00 p.m.</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-terra-arcilla"></i>
+                                <span>Ideal para acompañar con nuestra repostería artesanal.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-4 text-center md:text-right bg-terra-cafe-dark/50 p-6 rounded-2xl border border-terra-crema/10">
+                        <span class="block text-xs uppercase tracking-widest text-terra-arcilla font-semibold">Precio Walk-In</span>
+                        <span class="font-serif text-5xl font-bold text-terra-crema my-2 block">$3 <span class="text-xl font-normal text-terra-crema/70">USD</span></span>
+                        <span class="text-xs text-terra-crema/60 block mb-4">Por taza / Servido al momento</span>
+                        <span class="inline-block bg-terra-crema text-terra-cafe px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider">
+                            Llegar y Disfrutar
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PREPARACIONES ESPECIALES CON RESERVA -->
+    <section id="especiales" class="py-16 md:py-24 bg-terra-pergamino/30 border-b border-terra-pergamino">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-terra-terracota font-semibold text-xs tracking-widest uppercase">Alta Extracción Artesanal</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-terra-cafe">Preparaciones Especiales con Reserva</h2>
+                <p class="text-terra-cafe/80 text-sm sm:text-base">
+                    Métodos complejos que requieren precisión, calibración de molienda y tiempo de extracción individualizado. 
+                </p>
+            </div>
+
+            <!-- CARD PANEL DE DISPONIBILIDAD DIARIA (JS DINÁMICO) -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-terra-arcilla/20 shadow-md mb-12">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3 bg-terra-pergamino rounded-xl text-terra-terracota text-2xl">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-lg font-bold text-terra-cafe">Cupos de Extracción para Hoy</h3>
+                            <p class="text-xs text-terra-cafe/60">Garantizamos frescura limitando la producción diaria a máximo 50 tazas.</p>
+                        </div>
+                    </div>
+                    <div class="text-center sm:text-right">
+                        <div class="font-serif text-3xl font-bold text-terra-terracota" id="cupos-disponibles-txt">
+                            50 <span class="text-base font-normal text-terra-cafe/60">/ 50 tazas</span>
+                        </div>
+                        <span class="text-[11px] font-semibold text-terra-matcha uppercase tracking-wider" id="estado-cupos-badge">
+                            ● Reservas Abiertas
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Barra de Progreso -->
+                <div class="w-full bg-terra-pergamino h-3 rounded-full mt-6 overflow-hidden">
+                    <div id="barra-progreso" class="bg-terra-terracota h-full transition-all duration-500 rounded-full" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- MENÚ DE MÉTODOS ESPECIALES -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-terra-cafe mb-4">Métodos Disponibles</h3>
+
+                    <!-- V60 -->
+                    <div class="bg-white p-5 rounded-xl border border-terra-pergamino shadow-sm hover:border-terra-terracota/50 transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-terra-pergamino flex items-center justify-center text-terra-terracota font-bold text-sm">
+                                    V60
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-terra-cafe">Filtrado V60</h4>
+                            </div>
+                            <span class="font-serif text-xl font-bold text-terra-terracota">$5 <span class="text-xs text-terra-cafe/60 font-sans">USD</span></span>
+                        </div>
+                        <p class="text-xs text-terra-cafe/70 leading-relaxed">
+                            Cono con estrías en espiral. Produce una taza limpia, resaltando acidez brillante y notas florales o frutales.
+                        </p>
+                    </div>
+
+                    <!-- KYOTO DRIP -->
+                    <div class="bg-white p-5 rounded-xl border border-terra-pergamino shadow-sm hover:border-terra-terracota/50 transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-terra-pergamino flex items-center justify-center text-terra-terracota font-bold text-sm">
+                                    KD
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-terra-cafe">Kyoto Drip</h4>
+                            </div>
+                            <span class="font-serif text-xl font-bold text-terra-terracota">$7 <span class="text-xs text-terra-cafe/60 font-sans">USD</span></span>
+                        </div>
+                        <p class="text-xs text-terra-cafe/70 leading-relaxed">
+                            Torre de goteo helado gota a gota. Textura sedosa, dulzor intenso y cuerpo sedoso con muy baja acidez.
+                        </p>
+                    </div>
+
+                    <!-- SIPHON -->
+                    <div class="bg-white p-5 rounded-xl border border-terra-pergamino shadow-sm hover:border-terra-terracota/50 transition-all">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-terra-pergamino flex items-center justify-center text-terra-terracota font-bold text-sm">
+                                    SP
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-terra-cafe">Siphon Japonés</h4>
+                            </div>
+                            <span class="font-serif text-xl font-bold text-terra-terracota">$8 <span class="text-xs text-terra-cafe/60 font-sans">USD</span></span>
+                        </div>
+                        <p class="text-xs text-terra-cafe/70 leading-relaxed">
+                            Infusión por vacío usando mecheros de calor. Ofrece una taza con cuerpo completo, aromática y muy constante.
+                        </p>
+                    </div>
+
+                    <!-- Reglas aclaratorias -->
+                    <div class="p-4 bg-terra-pergamino/80 rounded-xl border border-terra-arcilla/20 text-xs text-terra-cafe/80 space-y-1">
+                        <p class="font-semibold text-terra-cafe flex items-center gap-1">
+                            <i class="fa-solid fa-circle-info text-terra-terracota"></i> Reglas de Reserva:
+                        </p>
+                        <p>• Máximo <strong>2 tazas por persona</strong> por día.</p>
+                        <p>• Sujeto a los 50 cupos diarios del local.</p>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO DE RESERVA INTERACTIVO -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-terra-arcilla/20 shadow-xl">
+                        <h3 class="font-serif text-2xl font-bold text-terra-cafe mb-2">Formulario de Reserva</h3>
+                        <p class="text-xs text-terra-cafe/70 mb-6">Completa tus datos para apartar tus tazas de preparación especial de hoy.</p>
+
+                        <form id="form-reserva-especial" class="space-y-4">
+                            <div>
+                                <label for="nombre" class="block text-xs font-semibold uppercase tracking-wider text-terra-cafe mb-1">Nombre Completo</label>
+                                <input type="text" id="nombre" required placeholder="Ej. Hiroshi Tanaka" 
+                                    class="w-full px-4 py-2.5 rounded-lg border border-terra-pergamino bg-terra-crema/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-terra-terracota text-sm text-terra-cafe">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-terra-cafe mb-1">Correo Electrónico</label>
+                                <input type="email" id="email" required placeholder="tu@email.com" 
+                                    class="w-full px-4 py-2.5 rounded-lg border border-terra-pergamino bg-terra-crema/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-terra-terracota text-sm text-terra-cafe">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="metodo" class="block text-xs font-semibold uppercase tracking-wider text-terra-cafe mb-1">Método de Filtrado</label>
+                                    <select id="metodo" required 
+                                        class="w-full px-4 py-2.5 rounded-lg border border-terra-pergamino bg-terra-crema/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-terra-terracota text-sm text-terra-cafe">
+                                        <option value="" disabled selected>Selecciona un método</option>
+                                        <option value="v60" data-precio="5">V60 ($5 USD)</option>
+                                        <option value="kyoto" data-precio="7">Kyoto Drip ($7 USD)</option>
+                                        <option value="siphon" data-precio="8">Siphon ($8 USD)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="cantidad" class="block text-xs font-semibold uppercase tracking-wider text-terra-cafe mb-1">Cantidad de Tazas (Máx 2)</label>
+                                    <input type="number" id="cantidad" min="1" max="2" value="1" required 
+                                        class="w-full px-4 py-2.5 rounded-lg border border-terra-pergamino bg-terra-crema/30 focus:bg-white focus:outline-none focus:ring-2 focus:ring-terra-terracota text-sm text-terra-cafe">
+                                </div>
+                            </div>
+
+                            <!-- RESUMEN DE CÁLCULO DINÁMICO -->
+                            <div class="p-4 bg-terra-pergamino rounded-xl border border-terra-arcilla/20 flex justify-between items-center my-4">
+                                <div>
+                                    <span class="text-xs font-semibold text-terra-cafe block">Total a pagar:</span>
+                                    <span class="text-[11px] text-terra-cafe/60">Pago directo en barra al llegar</span>
+                                </div>
+                                <div class="font-serif text-3xl font-bold text-terra-terracota" id="total-precio-txt">
+                                    $0 <span class="text-xs text-terra-cafe font-sans font-normal">USD</span>
+                                </div>
+                            </div>
+
+                            <!-- MENSAJE DE ERROR O ADVERTENCIA -->
+                            <div id="mensaje-error-reserva" class="hidden p-3 bg-red-100 border border-red-300 text-red-700 text-xs rounded-lg"></div>
+
+                            <button type="submit" id="btn-submit-reserva"
+                                class="w-full bg-terra-terracota hover:bg-terra-terracota-dark text-white font-medium py-3.5 rounded-xl transition-all shadow-md text-sm uppercase tracking-wider font-semibold">
+                                Confirmar Reserva Especial
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN CATA SEMANAL -->
+    <section id="cata" class="py-16 md:py-24 bg-terra-crema border-b border-terra-pergamino">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-terra-pergamino to-terra-crema border border-terra-arcilla/30 rounded-3xl p-8 sm:p-12 shadow-lg relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-4">
+                        <span class="bg-terra-matcha text-white text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">
+                            Evento Exclusivo • 1 vez por semana
+                        </span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-terra-cafe">
+                            Cata Guiada de Café de Especialidad
+                        </h2>
+                        <p class="text-terra-cafe/80 text-sm sm:text-base leading-relaxed">
+                            Acompáñanos a explorar la rueda de sabores del café. Una experiencia sensorial donde probaremos distintos orígenes, procesos (lavados, naturales, anaeróbicos) y métodos de extracción guiados por nuestro barista principal.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="bg-white/80 p-3 rounded-xl border border-terra-pergamino">
+                                <span class="block text-[10px] uppercase text-terra-cafe/60 font-bold">Inversión</span>
+                                <span class="font-serif text-xl font-bold text-terra-terracota">$25 USD</span>
+                                <span class="text-[10px] text-terra-cafe/60 block">por persona</span>
+                            </div>
+                            <div class="bg-white/80 p-3 rounded-xl border border-terra-pergamino">
+                                <span class="block text-[10px] uppercase text-terra-cafe/60 font-bold">Capacidad</span>
+                                <span class="font-serif text-xl font-bold text-terra-cafe">8 Cupos</span>
+                                <span class="text-[10px] text-terra-cafe/60 block">grupo íntimo</span>
+                            </div>
+                            <div class="bg-white/80 p-3 rounded-xl border border-terra-pergamino col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] uppercase text-terra-cafe/60 font-bold">Incluye</span>
+                                <span class="font-sans text-xs font-semibold text-terra-cafe">Degustación & Muestra</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMULARIO RÁPIDO CATA -->
+                    <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-terra-arcilla/20 shadow-md space-y-4">
+                        <div class="flex justify-between items-center pb-2 border-b border-terra-pergamino">
+                            <h3 class="font-serif font-bold text-terra-cafe text-lg">Reserva tu Cupo para la Cata</h3>
+                            <span class="text-xs bg-terra-terracota/10 text-terra-terracota px-2.5 py-1 rounded-full font-bold" id="cupos-cata-txt">
+                                8 cupos disponibles
+                            </span>
+                        </div>
+
+                        <form id="form-reserva-cata" class="space-y-3">
+                            <div>
+                                <label for="nombre-cata" class="block text-[11px] font-semibold uppercase text-terra-cafe mb-1">Nombre</label>
+                                <input type="text" id="nombre-cata" required placeholder="Tu nombre"
+                                    class="w-full px-3 py-2 rounded-lg border border-terra-pergamino bg-terra-crema/30 text-sm focus:outline-none focus:ring-2 focus:ring-terra-terracota">
+                            </div>
+                            <div>
+                                <label for="email-cata" class="block text-[11px] font-semibold uppercase text-terra-cafe mb-1">Correo</label>
+                                <input type="email" id="email-cata" required placeholder="tu@email.com"
+                                    class="w-full px-3 py-2 rounded-lg border border-terra-pergamino bg-terra-crema/30 text-sm focus:outline-none focus:ring-2 focus:ring-terra-terracota">
+                            </div>
+
+                            <div class="flex justify-between items-center pt-2">
+                                <span class="text-xs text-terra-cafe/70">Total: <strong>$25 USD</strong></span>
+                                <button type="submit" id="btn-submit-cata"
+                                    class="bg-terra-cafe hover:bg-terra-cafe-dark text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all shadow">
+                                    Apartar Cupo Cata
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER Y CONTACTO -->
+    <footer id="contacto" class="bg-terra-cafe text-terra-crema py-12 border-t border-terra-cafe-dark">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-terra-crema/10">
+                <!-- Columna 1: Branding -->
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-terra-terracota text-white flex items-center justify-center font-serif font-bold text-sm">
+                            大
+                        </div>
+                        <span class="font-serif text-xl font-bold tracking-wider">OOKINI</span>
+                    </div>
+                    <p class="text-xs text-terra-crema/70 leading-relaxed">
+                        Café de especialidad con alma de Kioto. Métodos de filtrado artesanal y tostado consciente.
+                    </p>
+                    <p class="text-[11px] text-terra-arcilla">
+                        * Precios expresados en Dólares Estadounidenses ($ USD).
+                    </p>
+                </div>
+
+                <!-- Columna 2: Horarios -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-terra-arcilla">Horarios de Atención</h4>
+                    <ul class="text-xs text-terra-crema/80 space-y-1.5">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-clock text-terra-terracota"></i>
+                            <span>Lunes a Domingo: <strong>8:00 a.m. - 8:00 p.m.</strong></span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-store text-terra-terracota"></i>
+                            <span>Atención Walk-in continua para Prensa Francesa.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto / Ubicación -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-terra-arcilla">Ubicación</h4>
+                    <p class="text-xs text-terra-crema/80 flex items-start space-x-2">
+                        <i class="fa-solid fa-location-dot text-terra-terracota mt-0.5"></i>
+                        <span>Distrito del Café de Especialidad, Calle Kyoto #45.</span>
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-full bg-terra-crema/10 hover:bg-terra-terracota text-terra-crema flex items-center justify-center text-xs transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-terra-crema/10 hover:bg-terra-terracota text-terra-crema flex items-center justify-center text-xs transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 text-center text-xs text-terra-crema/50">
+                <p>&copy; 2026 Ookini Specialty Coffee. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE CONFIRMACIÓN DE RESERVA -->
+    <div id="modal-confirmacion" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center space-y-4 shadow-2xl border border-terra-arcilla/30 transform transition-all scale-100">
+            <div class="w-16 h-16 bg-terra-matcha/20 text-terra-matcha-dark rounded-full flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-terra-cafe" id="modal-titulo">¡Reserva Confirmada!</h3>
+            <p class="text-xs text-terra-cafe/80 leading-relaxed" id="modal-mensaje">
+                Gracias por reservar en Ookini. Te esperamos hoy en la barra.
+            </p>
+            <div class="bg-terra-pergamino p-4 rounded-xl text-left text-xs text-terra-cafe space-y-1 border border-terra-arcilla/20" id="modal-detalles">
+                <!-- Se llena dinámicamente con JS -->
+            </div>
+            <button id="btn-cerrar-modal" class="w-full bg-terra-terracota hover:bg-terra-terracota-dark text-white font-medium py-2.5 rounded-lg text-xs uppercase tracking-wider font-semibold transition-all">
+                Entendido / Ookini (おおきに)
+            </button>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT VANILLA - LÓGICA DE NEGOCIO -->
+    <script>
+        // ==========================================
+        // ESTADO DE LA APLICACIÓN (STATE)
+        // ==========================================
+        const REGLAS_NEGOCIO = {
+            MAX_CUPOS_ESPECIALES_DIA: 50,
+            MAX_TAZAS_POR_PERSONA: 2,
+            MAX_CUPOS_CATA: 8,
+            PRECIOS: {
+                v60: 5,
+                kyoto: 7,
+                siphon: 8,
+                prensa: 3,
+                cata: 25
+            }
+        };
+
+        // Estado actual mutable
+        let cuposEspecialesRestantes = 50;
+        let cuposCataRestantes = 8;
+
+        // ==========================================
+        // ELEMENTOS DEL DOM
+        // ==========================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Formulario Especiales
+        const formEspecial = document.getElementById('form-reserva-especial');
+        const selectMetodo = document.getElementById('metodo');
+        const inputCantidad = document.getElementById('cantidad');
+        const txtTotalPrecio = document.getElementById('total-precio-txt');
+        const txtCuposDisponibles = document.getElementById('cupos-disponibles-txt');
+        const badgeEstadoCupos = document.getElementById('estado-cupos-badge');
+        const barraProgreso = document.getElementById('barra-progreso');
+        const mensajeErrorReserva = document.getElementById('mensaje-error-reserva');
+        const btnSubmitReserva = document.getElementById('btn-submit-reserva');
+
+        // Formulario Cata
+        const formCata = document.getElementById('form-reserva-cata');
+        const txtCuposCata = document.getElementById('cupos-cata-txt');
+        const btnSubmitCata = document.getElementById('btn-submit-cata');
+
+        // Modal
+        const modalConfirmacion = document.getElementById('modal-confirmacion');
+        const modalTitulo = document.getElementById('modal-titulo');
+        const modalMensaje = document.getElementById('modal-mensaje');
+        const modalDetalles = document.getElementById('modal-detalles');
+        const btnCerrarModal = document.getElementById('btn-cerrar-modal');
+
+
+        // ==========================================
+        // FUNCIONES Y LÓGICA
+        // ==========================================
+
+        // Menú móvil toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Actualizar cálculo dinámico del precio total
+        function calcularTotal() {
+            const metodoSeleccionado = selectMetodo.value;
+            const cantidad = parseInt(inputCantidad.value) || 0;
+
+            if (metodoSeleccionado && REGLAS_NEGOCIO.PRECIOS[metodoSeleccionado]) {
+                const precioUnitario = REGLAS_NEGOCIO.PRECIOS[metodoSeleccionado];
+                const total = precioUnitario * cantidad;
+                txtTotalPrecio.innerHTML = `$${total} <span class="text-xs text-terra-cafe font-sans font-normal">USD</span>`;
+            } else {
+                txtTotalPrecio.innerHTML = `$0 <span class="text-xs text-terra-cafe font-sans font-normal">USD</span>`;
+            }
+        }
+
+        // Validar reglas al cambiar campos del formulario de reserva
+        function validarReglasReserva() {
+            const cantidad = parseInt(inputCantidad.value) || 0;
+            mensajeErrorReserva.classList.add('hidden');
+            mensajeErrorReserva.textContent = '';
+
+            // Regla 1: Máximo 2 tazas por persona
+            if (cantidad > REGLAS_NEGOCIO.MAX_TAZAS_POR_PERSONA) {
+                mensajeErrorReserva.textContent = `Regla de negocio: Solo puedes reservar un máximo de ${REGLAS_NEGOCIO.MAX_TAZAS_POR_PERSONA} tazas por persona.`;
+                mensajeErrorReserva.classList.remove('hidden');
+                return false;
+            }
+
+            // Regla 2: Límite de tazas disponibles en el día
+            if (cantidad > cuposEspecialesRestantes) {
+                mensajeErrorReserva.textContent = `No hay suficientes cupos disponibles. Solo quedan ${cuposEspecialesRestantes} tazas para hoy.`;
+                mensajeErrorReserva.classList.remove('hidden');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Actualizar interfaz del contador de cupos especiales
+        function actualizarUIEspeciales() {
+            txtCuposDisponibles.innerHTML = `${cuposEspecialesRestantes} <span class="text-base font-normal text-terra-cafe/60">/ 50 tazas</span>`;
+            
+            const porcentaje = (cuposEspecialesRestantes / REGLAS_NEGOCIO.MAX_CUPOS_ESPECIALES_DIA) * 100;
+            barraProgreso.style.width = `${porcentaje}%`;
+
+            if (cuposEspecialesRestantes === 0) {
+                badgeEstadoCupos.textContent = '● Agotado por Hoy';
+                badgeEstadoCupos.className = 'text-[11px] font-semibold text-red-600 uppercase tracking-wider';
+                barraProgreso.classList.replace('bg-terra-terracota', 'bg-red-500');
+                btnSubmitReserva.disabled = true;
+                btnSubmitReserva.classList.add('opacity-50', 'cursor-not-allowed');
+                btnSubmitReserva.textContent = 'Sin cupos disponibles hoy';
+            } else if (cuposEspecialesRestantes <= 10) {
+                badgeEstadoCupos.textContent = '● ÚLTIMOS CUPOS';
+                badgeEstadoCupos.className = 'text-[11px] font-semibold text-amber-600 uppercase tracking-wider animate-pulse';
+            }
+        }
+
+        // Actualizar UI Cata
+        function actualizarUICata() {
+            txtCuposCata.textContent = `${cuposCataRestantes} cupos disponibles`;
+            if (cuposCataRestantes === 0) {
+                btnSubmitCata.disabled = true;
+                btnSubmitCata.classList.add('opacity-50', 'cursor-not-allowed');
+                btnSubmitCata.textContent = 'Agotado';
+            }
+        }
+
+        // Mostrar Modal
+        function mostrarModal(titulo, mensaje, detallesHTML) {
+            modalTitulo.textContent = titulo;
+            modalMensaje.textContent = mensaje;
+            modalDetalles.innerHTML = detallesHTML;
+            modalConfirmacion.classList.add('modal-active');
+        }
+
+        // Event Listeners para recálculo
+        selectMetodo.addEventListener('change', () => {
+            calcularTotal();
+            validarReglasReserva();
+        });
+
+        inputCantidad.addEventListener('input', () => {
+            // Forzar máximo en input html
+            if (parseInt(inputCantidad.value) > 2) {
+                inputCantidad.value = 2;
+            }
+            calcularTotal();
+            validarReglasReserva();
+        });
+
+        // MANEJO DEL SUBMIT - RESERVA ESPECIAL
+        formEspecial.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!validarReglasReserva()) return;
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const metodo = selectMetodo.value;
+            const cantidad = parseInt(inputCantidad.value);
+            const precioUnitario = REGLAS_NEGOCIO.PRECIOS[metodo];
+            const total = precioUnitario * cantidad;
+
+            const nombreMetodoTexto = selectMetodo.options[selectMetodo.selectedIndex].text;
+
+            // Restar del estado de cupos
+            cuposEspecialesRestantes -= cantidad;
+            actualizarUIEspeciales();
+
+            // Preparar Modal
+            const detalles = `
+                <p><strong>Cliente:</strong> ${nombre}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Método:</strong> ${nombreMetodoTexto}</p>
+                <p><strong>Cantidad:</strong> ${cantidad} taza(s)</p>
+                <p class="pt-1 border-t border-terra-arcilla/20 text-terra-terracota font-bold"><strong>Total a pagar:</strong> $${total} USD</p>
+            `;
+
+            mostrarModal('¡Reserva Confirmada en Ookini!', 'Hemos apartado tu preparación especial. Por favor preséntate en la barra dentro del horario de atención.', detalles);
+
+            // Limpiar Formulario
+            formEspecial.reset();
+            calcularTotal();
+        });
+
+        // MANEJO DEL SUBMIT - CATA SEMANAL
+        formCata.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (cuposCataRestantes <= 0) return;
+
+            const nombre = document.getElementById('nombre-cata').value;
+            const email = document.getElementById('email-cata').value;
+
+            cuposCataRestantes -= 1;
+            actualizarUICata();
+
+            const detalles = `
+                <p><strong>Asistente:</strong> ${nombre}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Experiencia:</strong> Cata Guiada Semanal de Especialidad</p>
+                <p class="pt-1 border-t border-terra-arcilla/20 text-terra-terracota font-bold"><strong>Total a pagar:</strong> $25 USD</p>
+            `;
+
+            mostrarModal('¡Cupo Aprobado para la Cata!', 'Te enviamos las especificaciones de la sesión a tu correo.', detalles);
+
+            formCata.reset();
+        });
+
+        // Cerrar Modal
+        btnCerrarModal.addEventListener('click', () => {
+            modalConfirmacion.classList.remove('modal-active');
+        });
+
+        // Inicialización
+        actualizarUIEspeciales();
+        actualizarUICata();
+    </script>
+</body>
+</html>
