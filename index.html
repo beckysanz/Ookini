@@ -7,63 +7,497 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Ookini</h1>
-        <h2>Café de especialidad</h2>
-        <nav>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#metodos">Métodos</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
 
-    </header>
+<header class="header-principal">
 
-    <main>   
-        <section id="métodos">
+    <div class="logo">
+        <div class="logo-simbolo">O</div>
 
-<p>En Ookini creemos que cada taza de café cuenta con una historia. Nos inspra la tradición japonesa de preparar café
-    con experiencia, precisión y respeto por cada grano. Seleccionamos cuidadosamente los granos de café de origen único
-    y los tostamos en pequeños lotes para resaltar sus sabores y aromas únicos para disfrutar sin prisa. 
-    porque el buen café no sólo se bebe se vive.</p>
+        <div class="logo-texto">
+            <h1>OOKINI</h1>
+            <span>SPECIALTY COFFEE</span>
+        </div>
+    </div>
+ 
+<nav class="menu-principal">
+    <a href="#filosofia">Nuestra Historia</a>
+    <a href="#prensa-francesa">Prensa Francesa</a>
+    <a href="#metodos-especiales">Métodos Especiales</a>
+    <a href="#cata-semanal">Cata Semanal</a>
+    <a href="#contacto">Horarios</a>
+</nav>
 
-<h2>Métodos de preparación</h2>
+    <a href="#reservas" class="boton-header">
+        Reservar Taza
+    </a>
 
-<h3 class="metodo-titulo">V60</h3>
-<p>Inmersión total con molienda gruesa durante cuatro minutos.
-     Sin filtro de papel, los aceites del café pasan a la taza y construyen un cuerpo redondo y robusto.
-      Es nuestro único método sin reserva, listo apenas lo pides. <span class="precio">$7.00</span>
-</p> 
-<h3 class="metodo-titulo">Kyoto drip</h3>
-<p>Filtrado por goteo con molienda media. 
-    El agua cae despacio sobre el café durante tres minutos y arrastra notas limpias y brillantes. 
-    Es el método más versátil de la barra y el mejor para descubrir la personalidad de un grano nuevo. 
-    <span class="precio">$8.00</span></p>
+</header>
 
-<h3 class="metodo-titulo">Siphon</h3>
-<p>Método de vacío con molienda media fina. 
-    El agua sube por presión, se mezcla con el café durante un minuto, y baja filtrada cuando se apaga la llama. 
-    Tarda cuatro minutos en total y produce una taza limpia y aromática. <span class="precio">$10.00</p>
+<section class="portada">
+    <img src="ookini-portada.jpg" alt="Interior de la cafeteria Ookini">
+</section>
 
-<h3 class="metodo-titulo">French press</h3>
-<p>Inmersión total con molienda gruesa durante cuatro minutos.
-     Sin filtro de papel, los aceites del café pasan a la taza y construyen un cuerpo redondo y robusto.
-      Es nuestro único método sin reserva, listo apenas lo pides. <span class="precio">$9.00</span></p>
+<main>
 
+    <!-- PRESENTACIÓN PRINCIPAL -->
+    <section class="presentacion" id="historia">
+
+        <div class="presentacion-texto">
+
+            <span class="etiqueta">
+                Inspirado en la artesanía de Kyoto
+            </span>
+
+            <h2>Un ritual de paciencia en cada gota.</h2>
+
+            <p>
+                Cada taza cuenta su historia. En Ookini seleccionamos
+                cuidadosamente nuestros granos de café de origen único
+                y los preparamos con dedicación, precisión y respeto
+                por cada grano.
+            </p>
+
+            <a href="#metodos-especiales" class="boton-presentacion">
+                Descubrir nuestros métodos
+            </a>
+
+        </div>
+
+        <div class="tarjeta-metodo">
+
+            <span class="etiqueta-estrella">Método estrella</span>
+
+            <img
+                src="kyoto-drip.jpg"
+                alt="Preparación de café Kyoto Drip"
+                class="imagen-kyoto"
+            >
+
+            <h3>Kyoto Drip</h3>
+
+            <p class="subtitulo-tarjeta">
+                GOTA A GOTA · EXTRACCIÓN FRÍA
+            </p>
+
+            <p>
+                8 a 12 horas de infusión para revelar
+                notas sutiles y licorosas.
+            </p>
+
+            <div class="precio-tarjeta">
+                <span>Precio por taza:</span>
+                <strong>$8.00 USD</strong>
+            </div>
+
+        </div>
 
     </section>
 
-    <section id=" reservas">
-        <p>tazas disponibles hoy: <span id="contador-tazas">50</span></p>
-        <button id="reservar-taza">Reservar una taza</button>
-        <p id="reserva-registrada"></p>
+    <!-- FILOSOFÍA DE OOKINI -->
+    <section class="filosofia" id="filosofia">
+
+        <span class="filosofia-etiqueta">
+            おおきに · Gracias
+        </span>
+
+        <h2>La filosofía detrás de Ookini</h2>
+
+        <h3>Una taza, un ritual, una forma de agradecer.</h3>
+
+        <p>
+            En la región de Kansai, Japón, «Ookini» es una
+            expresión tradicional de gratitud. Para nosotros
+            representa mucho más que un simple gracias:
+            es una forma cálida de reconocer cada encuentro
+            y cada momento compartido.
+        </p>
+
+        <p>
+            Nos inspiramos en la tradición japonesa y en la
+            dedicación que exige el café de especialidad.
+            Seleccionamos granos de origen único y cuidamos
+            cada detalle de su preparación, porque creemos
+            que cada taza merece su propio tiempo y su
+            propia historia.
+        </p>
+
+        <h3 class="cierre-filosofia">
+            Gracias por compartir este ritual con nosotros.
+        </h3>
+
     </section>
-    </main>
+
+    <!-- PRENSA FRANCESA WALK-IN -->
+    <section class="walkin" id="prensa-francesa">
+
+        <div class="walkin-texto">
+
+            <span class="walkin-etiqueta">
+                SERVICIO CONTINUO · SIN RESERVA
+            </span>
+
+            <h2>Prensa Francesa (Walk-in)</h2>
+
+            <p>
+                ¿Buscas un café artesanal reconfortante
+                sin necesidad de reservar con anticipación?
+                Visítanos directamente. Preparamos nuestra
+                Prensa Francesa con granos de tueste medio,
+                logrando un cuerpo denso, aromático y rico
+                en aceites naturales.
+            </p>
+
+            <ul>
+                <li>Sin límite de tazas por persona.</li>
+                <li>Disponible todos los días de 8:00 a.m. a 8:00 p.m.</li>
+                <li>Ideal para acompañar nuestra repostería artesanal.</li>
+            </ul>
+
+        </div>
+
+        <div class="walkin-visual">
+
+            <img
+                src="french-press2.jpg"
+                alt="Prensa francesa con una taza de café"
+                class="imagen-prensa"
+            >
+
+            <div class="walkin-precio">
+
+                <span>PRECIO WALK-IN</span>
+
+                <strong>$9.00 USD</strong>
+
+                <small>Por taza · Servido al momento</small>
+
+            </div>
+
+        </div>
+    </section>
+
+    
+    <!-- MÉTODOS DE PREPARACIÓN -->
+    <section class="metodos-seccion" id="metodos-especiales">
+
+        <div class="metodos-encabezado">
+            <span class="etiqueta">EL ARTE DE PREPARAR CAFÉ</span>
+            <h2>Nuestros métodos de preparación</h2>
+            <p>Cada método revela una personalidad diferente del café.</p>
+        </div>
+
+        <div class="metodos-grid">
+
+            <!-- V60 -->
+            <article class="metodo-card">
+
+                <img src="cafe-filtrado.jpg"
+                     alt="Preparación de café V60">
+
+                <div class="metodo-contenido">
+                    <h3>V60</h3>
+                    <span class="metodo-tiempo">FILTRADO · 3 MINUTOS</span>
+
+                    <p>
+                        Filtrado por goteo con molienda media.
+                        El agua cae despacio sobre el café durante
+                        tres minutos y arrastra notas limpias y brillantes.
+                        Es ideal para descubrir la personalidad de un grano nuevo.
+                    </p>
+
+                    <div class="metodo-pie">
+                        <strong>$7.00 USD</strong>
+                        <button type="button" class="boton-metodo"
+                                data-metodo="V60">
+                            Reservar
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- KYOTO DRIP -->
+            <article class="metodo-card">
+
+                <img src="cafe-helado.jpg"
+                     alt="Preparación de café Kyoto Drip">
+
+                <div class="metodo-contenido">
+                    <h3>Kyoto Drip</h3>
+                    <span class="metodo-tiempo">EXTRACCIÓN FRÍA · 8 HORAS</span>
+
+                    <p>
+                        Extracción en frío gota a gota durante ocho horas.
+                        Utilizamos molienda media gruesa y agua a temperatura
+                        ambiente para obtener un café denso, dulce y con
+                        muy poca acidez.
+                    </p>
+
+                    <div class="metodo-pie">
+                        <strong>$8.00 USD</strong>
+                        <button type="button" class="boton-metodo"
+                                data-metodo="Kyoto Drip">
+                            Reservar
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- SIPHON -->
+            <article class="metodo-card">
+
+                <img src="siphon-taza2.jpg"
+                     alt="Preparación de café mediante método Siphon">
+
+                <div class="metodo-contenido">
+                    <h3>Siphon</h3>
+                    <span class="metodo-tiempo">VACÍO · 4 MINUTOS</span>
+
+                    <p>
+                        Método de vacío con molienda media fina.
+                        El agua sube por presión, se mezcla con el café
+                        y baja filtrada al apagar la llama.
+                        Produce una taza limpia y aromática.
+                    </p>
+
+                    <div class="metodo-pie">
+                        <strong>$10.00 USD</strong>
+                        <button type="button" class="boton-metodo"
+                                data-metodo="Siphon">
+                            Reservar
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+   
+<!-- FORMULARIO DE RESERVAS -->
+<section class="reservas-seccion" id="reservas">
+
+    <div class="reservas-encabezado">
+        <span class="etiqueta">TU MOMENTO OOKINI</span>
+        <h2>Reserva tu experiencia</h2>
+        <p>Selecciona tu método y el momento que deseas compartir con nosotros.</p>
+    </div>
+
+    <!-- CONTENEDOR DE LAS DOS TARJETAS -->
+    <div class="reservas-contenido">
+
+        <!-- FORMULARIO -->
+        <form id="formulario-reserva">
+
+<div class="campo-reserva">
+    <label for="nombre-cliente">Nombre completo</label>
+    <input
+        type="text"
+        id="nombre-cliente"
+        placeholder="Escribe tu nombre"
+        required
+    >
+</div>
+
+<div class="campo-reserva">
+    <label for="correo-cliente">Correo electrónico</label>
+    <input
+        type="email"
+        id="correo-cliente"
+        placeholder="tu@email.com"
+        required
+    >
+</div>
+
+<div class="campo-reserva">
+    <label for="telefono-cliente">Teléfono o WhatsApp</label>
+    <input
+        type="tel"
+        id="telefono-cliente"
+        placeholder="Tu número de contacto"
+        required
+    >
+</div>
+
+
+            <div class="campo-reserva">
+                <label for="metodo">Método de preparación</label>
+
+                <select id="metodo" required>
+                    <option value="">Selecciona un método</option>
+                    <option value="V60">V60 — $7.00</option>
+                    <option value="Kyoto Drip">Kyoto Drip — $8.00</option>
+                    <option value="Siphon">Siphon — $10.00</option>
+                </select>
+            </div>
+
+            <div class="reserva-fila">
+
+                <div class="campo-reserva">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" required>
+                </div>
+
+                <div class="campo-reserva">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" min="08:00" max="19:00" required>
+                </div>
+
+                <div class="campo-reserva">
+                    <label for="cantidad">Cantidad de tazas</label>
+
+                    <select id="cantidad" required>
+                        <option value="1">1 taza</option>
+                        <option value="2">2 tazas</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="reserva-resumen">
+                <span>Total de la reserva</span>
+                <strong id="total-reserva">$0.00 USD</strong>
+            </div>
+
+            <p class="disponibilidad">
+                Tazas disponibles:
+                <strong id="contador-tazas">50</strong>
+            </p>
+
+            <button type="submit" id="reservar-taza">
+                Confirmar reserva
+            </button>
+
+            <p id="reserva-registrada" aria-live="polite"></p>
+
+        </form>
+
+        <!-- REGLAS DE RESERVA -->
+        <div class="reglas-reserva">
+
+            <h3>Reglas de reserva</h3>
+
+            <ul>
+                <li>Máximo dos tazas por reserva.</li>
+                <li>La reserva está sujeta a disponibilidad.</li>
+                <li>Selecciona la fecha y hora de tu visita.</li>
+                <li>La Prensa Francesa es un servicio Walk-in y no requiere reserva.</li>
+            </ul>
+
+        </div>
+
+    </div>
+    <!-- FIN DEL CONTENEDOR DE RESERVAS -->
+
+</section>
+
+
+<!-- CATA SEMANAL -->
+<section class="cata-semanal" id="cata-semanal">
+
+    <!-- FOTOGRAFÍA -->
+    <div class="cata-fotografia">
+        <img
+            src="cata-semanal.jpg"
+            alt="Experiencia de degustación de café de especialidad"
+        >
+    </div>
+
+    <!-- INFORMACIÓN DE LA CATA -->
+    <div class="cata-informacion">
+
+        <span class="cata-etiqueta">
+            EVENTO EXCLUSIVO · 1 VEZ POR SEMANA
+        </span>
+
+        <h2>Cata Guiada de Café de Especialidad</h2>
+
+        <p>
+            Acompáñanos a explorar la rueda de sabores del café.
+            Una experiencia sensorial donde probaremos distintos
+            orígenes, procesos (lavados, naturales, anaeróbicos)
+            y métodos de extracción guiados por nuestro barista principal.
+        </p>
+
+        <div class="cata-datos">
+
+            <div>
+                <span>INVERSIÓN</span>
+                <strong>$25 USD</strong>
+                <small>por persona</small>
+            </div>
+
+            <div>
+                <span>CAPACIDAD</span>
+                <strong>8 Cupos</strong>
+                <small>grupo íntimo</small>
+            </div>
+
+            <div>
+                <span>INCLUYE</span>
+                <strong>Degustación &amp; Muestra</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FORMULARIO DE CATA -->
+    <form class="cata-formulario" id="formulario-cata">
+
+        <div class="cata-formulario-cabecera">
+            <h3>Reserva tu Cupo para la Cata</h3>
+
+            <span>
+                <strong id="contador-cata">8</strong>
+                cupos disponibles
+            </span>
+        </div>
+
+        <div class="campo-cata">
+            <label for="nombre-cata">NOMBRE</label>
+            <input
+                type="text"
+                id="nombre-cata"
+                placeholder="Tu nombre"
+                required
+            >
+        </div>
+
+        <div class="campo-cata">
+            <label for="correo-cata">CORREO</label>
+            <input
+                type="email"
+                id="correo-cata"
+                placeholder="tu@email.com"
+                required
+            >
+        </div>
+
+        <div class="cata-pie-formulario">
+            <p>Total: <strong>$25 USD</strong></p>
+
+            <button type="submit" id="reservar-cata">
+                Apartar Cupo Cata
+            </button>
+        </div>
+
+        <p id="mensaje-cata" aria-live="polite"></p>
+
+    </form>
+
+</section>
+<!-- FIN CATA SEMANAL -->
+
 
 </main>
 
-<img src="ookini-barra.png" alt="Barra de Ookini, café de especialidad" class="imagen-ookini">
-
 <footer id="contacto">
+
     <div class="curvas"></div>
 
     <div class="informacion-footer">
@@ -75,12 +509,10 @@
     <div class="derechos">
         © 2026 Ookini. Todos los derechos reservados.
     </div>
+
 </footer>
 
 <script src="script.js"></script>
-</body>
-</html>
-
 
 </body>
 </html>

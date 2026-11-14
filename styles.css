@@ -1,7 +1,16 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Georgia, serif;
     color: #30251F;
     background-color: #F3EBDD;
+    margin: 0;
 }
 
 h1 {
@@ -9,71 +18,655 @@ h1 {
     font-size: 2.5rem;
 }
 
-header {
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #C49A72;
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.header-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    width: 100%;
 }
 
-nav a {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-simbolo {
+    width: 46px;
+    height: 46px;
+    background-color: #A65F3D;
+    color: #F3EBDD;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo-texto h1 {
+    margin: 0;
+    font-size: 1.7rem;
     color: #704936;
 }
+
+.logo-texto span {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #687D5B;
+}
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu-principal a {
+    text-decoration: none;
+    color: #49382C;
+    font-size: 0.95rem;
+}
+
+.menu-principal a:hover {
+    color: #A65F3D;
+}
+
+.boton-header {
+    background-color: #704936;
+    color: #F3EBDD;
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.boton-header:hover {
+    background-color: #A65F3D;
+}
+
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+========================================= */
+
 main {
-    padding: 3rem 2rem;
-    max-width: 800px;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* =========================================
+   PORTADA
+========================================= */
+
+.portada img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================
+   PRESENTACIÓN PRINCIPAL
+========================================= */
+
+.presentacion {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+    padding: 5rem 8%;
+    background-color: #F8F4ED;
+}
+
+.presentacion-texto h2 {
+    font-size: 3.5rem;
+    color: #49382C;
+    line-height: 1.05;
+    margin: 1.5rem 0;
+}
+
+.presentacion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #625449;
+    max-width: 650px;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: #704936;
+    background-color: #EEE5D9;
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+}
+
+.boton-presentacion {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: #704936;
+    color: #F3EBDD;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-presentacion:hover {
+    background-color: #A65F3D;
+}
+
+
+/* =========================================
+   TARJETA DEL MÉTODO ESTRELLA
+========================================= */
+
+.tarjeta-metodo {
+    background-color: #EEE5D9;
+    padding: 2.5rem;
+    border: 1px solid #E1CEB9;
+    border-radius: 18px;
+    text-align: center;
+    position: relative;
+}
+
+.tarjeta-metodo h3 {
+    font-size: 1.8rem;
+    color: #49382C;
+}
+
+.subtitulo-tarjeta {
+    color: #687D5B;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.etiqueta-estrella {
+    display: inline-block;
+    background-color: #687D5B;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.precio-tarjeta {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #D8C8B6;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.precio-tarjeta strong {
+    color: #C9572F;
+}
+
+.imagen-kyoto {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    margin: 1rem auto;
+}
+
+
+/* =========================================
+   FILOSOFÍA
+========================================= */
+
+.filosofia {
+    padding: 5rem 12%;
+    text-align: center;
+    background-color: #F3EBDD;
+}
+
+.filosofia-etiqueta {
+    color: #C9572F;
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.filosofia h2 {
+    color: #49382C;
+    font-size: 2.5rem;
+    margin: 1.2rem 0;
+}
+
+.filosofia h3 {
+    color: #704936;
+    font-size: 1.3rem;
+}
+
+.filosofia p {
+    max-width: 850px;
+    margin: 1.5rem auto;
+    color: #625449;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.filosofia .cierre-filosofia {
+    margin-top: 2.5rem;
+    font-style: italic;
+}
+
+
+/* =========================================
+   PRENSA FRANCESA - WALK IN
+========================================= */
+
+.walkin {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
+    align-items: center;
+    gap: 3rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 3rem;
+    background-color: #49382C;
+    color: #F3EBDD;
+    border-radius: 16px;
+    box-shadow: 0 18px 35px rgba(48, 37, 31, 0.15);
+}
+
+.walkin-texto {
+    min-width: 0;
+}
+
+.walkin-etiqueta {
+    display: inline-block;
+    background-color: #687D5B;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.walkin-texto h2 {
+    color: #F3EBDD;
+    font-size: 2.3rem;
+    margin: 1.2rem 0;
+}
+
+.walkin-texto p {
+    color: #E5D3C1;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.walkin-texto ul {
+    padding-left: 1.2rem;
+    line-height: 2;
+    color: #F3EBDD;
+}
+
+.walkin-texto li::marker {
+    color: #D58A68;
+}
+
+.walkin-visual {
+    width: 100%;
+    min-width: 0;
+    background-color: #38271D;
+    padding: 1.2rem;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #604936;
+}
+
+.walkin-visual .imagen-prensa {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 28px;
     margin: 0 auto;
 }
 
-.metodo-titulo {
-    font-size: 1.1rem;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    color: #704936;
-}
-
-.precio {
-    color: #A65F3D;
-    font-weight: bold;
-}
-
-
-#reservas {
+.walkin-precio {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    background-color: #F3EBDD;
-    color: #30251F;
+    gap: 0.5rem;
+    padding: 1.3rem 0 0.5rem;
 }
 
-#contador-tazas {
-    font-size: 1.5rem;
+.walkin-precio span {
+    color: #D58A68;
+    font-size: 0.8rem;
     font-weight: bold;
-    color: #A65F3D;
+    letter-spacing: 1px;
 }
 
-#reservar-taza {
+.walkin-precio strong {
+    color: #F3EBDD;
+    font-size: 2rem;
+}
+
+.walkin-precio small {
+    color: #E5D3C1;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   MÉTODOS DE PREPARACIÓN
+========================================= */
+
+.metodos-seccion {
     display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1.25rem;
+    width: 100%;
+    padding: 5rem 7%;
+    background-color: #F8F4ED;
+}
+
+.metodos-encabezado,
+.reservas-encabezado {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.metodos-encabezado h2,
+.reservas-encabezado h2 {
+    color: #49382C;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.metodos-encabezado p,
+.reservas-encabezado p {
+    color: #625449;
+    line-height: 1.7;
+}
+
+
+/* DISTRIBUCIÓN DE LAS TARJETAS */
+
+.metodos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+
+/* TARJETAS */
+
+.metodo-card {
+    background-color: #F3EBDD;
+    border: 1px solid #E1CEB9;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    box-shadow: 0 8px 20px rgba(48, 37, 31, 0.05);
+}
+
+
+/* LAS TRES FOTOGRAFÍAS */
+
+.metodo-card img {
+    display: block;
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* AJUSTE V60 */
+
+.metodo-card:nth-child(1) img {
+    height: 440px;
+    object-position: center 55%;
+}
+
+/* AJUSTE KYOTO DRIP */
+
+.metodo-card:nth-child(2) img {
+    height: 440px;
+    object-position: center 50%;
+}
+
+/* AJUSTE SIPHON */
+
+.metodo-card:nth-child(3) img {
+    height: 440px;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+
+/* CONTENIDO DE LAS TARJETAS */
+
+.metodo-contenido {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.metodo-contenido h3 {
+    color: #49382C;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 0 0 0.8rem;
+}
+
+.metodo-tiempo {
+    color: #687D5B;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.5rem;
+}
+
+.metodo-contenido p {
+    color: #625449;
+    line-height: 1.75;
+    font-size: 1rem;
+    margin: 1rem 0 1.5rem;
+    flex: 1;
+}
+
+
+/* PRECIO Y BOTÓN */
+
+.metodo-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid #D8C8B6;
+    padding-top: 1.2rem;
+    margin-top: auto;
+}
+
+.metodo-pie strong {
+    color: #A65F3D;
+    font-size: 1.25rem;
+}
+
+.boton-metodo {
     background-color: #704936;
     color: #F3EBDD;
     border: none;
+    border-radius: 7px;
+    padding: 0.8rem 1.1rem;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-metodo:hover {
+    background-color: #A65F3D;
+}
+
+
+/* =========================================
+   FORMULARIO DE RESERVAS
+========================================= */
+
+#reservas.reservas-seccion {
+    display: block;
+    width: 100%;
+    padding: 5rem 7%;
+    background-color: #F3EBDD;
+}
+
+#formulario-reserva {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 2.5rem;
+    background-color: #F8F4ED;
+    border: 1px solid #E1CEB9;
+    border-radius: 16px;
+}
+
+.campo-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 1.5rem;
+}
+
+.campo-reserva label {
+    color: #49382C;
+    font-weight: bold;
+}
+
+.campo-reserva input,
+.campo-reserva select {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid #D8C8B6;
+    border-radius: 7px;
+    background-color: white;
+    color: #49382C;
     font-family: Georgia, serif;
     font-size: 1rem;
+}
+
+.reserva-fila {
+    display: flex;
+    gap: 1rem;
+}
+
+.reserva-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #D8C8B6;
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+    color: #49382C;
+}
+
+.reserva-resumen strong {
+    color: #A65F3D;
+    font-size: 1.5rem;
+}
+
+.disponibilidad {
+    color: #625449;
+    margin: 1.5rem 0;
+}
+
+.disponibilidad strong {
+    color: #687D5B;
+}
+
+#reservar-taza {
+    width: 100%;
+    padding: 1rem;
+    background-color: #704936;
+    color: #F3EBDD;
+    border: none;
+    border-radius: 8px;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
 }
 
-
-/* Fotografía independiente del pie de página */
-.imagen-ookini {
-    width: 55%;
-    height: auto;
-    display: block;
-    margin: 2rem auto;
+#reservar-taza:hover {
+    background-color: #A65F3D;
 }
 
-/* Pie de página */
+#reservar-taza:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#reserva-registrada {
+    text-align: center;
+    color: #687D5B;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+
+/* =========================================
+   REGLAS DE RESERVA
+========================================= */
+
+.reglas-reserva {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 2rem;
+    background-color: #EEE5D9;
+    border-radius: 12px;
+}
+
+.reglas-reserva h3 {
+    color: #49382C;
+}
+
+.reglas-reserva ul {
+    color: #625449;
+    line-height: 2;
+    padding-left: 1.2rem;
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
 #contacto {
     position: relative;
     background-color: #704936;
@@ -84,7 +677,6 @@ main {
     overflow: hidden;
 }
 
-/* Curvas decorativas superiores */
 .curvas {
     height: 75px;
     margin: 0 -2rem 1.5rem;
@@ -130,5 +722,505 @@ main {
 }
 
 
+/* =========================================
+   TABLETAS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .metodos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metodo-card img {
+        height: 440px;
+    }
+
+    .metodo-card:nth-child(3) img {
+        height: 440px;
+    }
+}
 
 
+/* =========================================
+   TELÉFONOS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .header-principal {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .menu-principal {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .portada img {
+        height: 300px;
+    }
+
+    .presentacion {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 3rem 6%;
+    }
+
+    .presentacion-texto h2 {
+        font-size: 2.5rem;
+    }
+
+    .filosofia {
+        padding: 3rem 7%;
+    }
+
+    .filosofia h2 {
+        font-size: 2rem;
+    }
+
+    .walkin {
+        grid-template-columns: 1fr;
+        width: 92%;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .walkin-texto h2 {
+        font-size: 1.8rem;
+    }
+
+    .walkin-visual {
+        width: 100%;
+    }
+
+    .walkin-visual .imagen-prensa {
+        max-height: 340px;
+    }
+
+    .metodos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metodo-card img {
+        height: 440px;
+    }
+
+    .metodo-card:nth-child(1) img,
+    .metodo-card:nth-child(2) img,
+    .metodo-card:nth-child(3) img {
+        height: 440px;
+    }
+
+    .metodos-encabezado h2,
+    .reservas-encabezado h2 {
+        font-size: 2rem;
+    }
+
+    .metodos-seccion,
+    #reservas.reservas-seccion {
+        padding: 3rem 5%;
+    }
+
+    .metodo-contenido {
+        padding: 1.5rem;
+    }
+
+    .metodo-contenido h3 {
+        font-size: 1.7rem;
+    }
+
+    .reserva-fila {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    #formulario-reserva {
+        padding: 1.5rem;
+    }
+}
+
+
+/* RESERVAS Y REGLAS EN HORIZONTAL */
+
+.reservas-contenido {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    align-items: stretch;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#formulario-reserva,
+.reglas-reserva {
+    width: 100%;
+    height: 100%;
+}
+
+.reglas-reserva {
+    margin: 0;
+}
+
+/* En pantallas pequeñas se colocan una debajo de otra */
+
+@media (max-width: 768px) {
+    .reservas-contenido {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================
+   CATA SEMANAL - DISEÑO OOKINI
+===================================== */
+
+.cata-semanal {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr 0.95fr;
+    align-items: stretch;
+    gap: 2rem;
+    width: 92%;
+    max-width: 1500px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #E8DCCF, #F8F4ED);
+    border: 1px solid #E1CEB9;
+    border-radius: 22px;
+    box-shadow: 0 8px 20px rgba(73, 56, 44, 0.10);
+}
+
+/* FOTOGRAFÍA */
+
+.cata-fotografia {
+    min-width: 0;
+    min-height: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.cata-fotografia img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+}
+
+/* INFORMACIÓN */
+
+.cata-informacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 0.5rem 0;
+}
+
+.cata-etiqueta {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.4rem 0.8rem;
+    background: #687D5B;
+    color: #FFFFFF;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.cata-informacion h2 {
+    color: #49382C;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    margin: 1.2rem 0;
+}
+
+.cata-informacion > p {
+    color: #625449;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* DATOS DE LA CATA */
+
+.cata-datos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+}
+
+.cata-datos > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    min-width: 0;
+    padding: 0.9rem;
+    background: #FFFFFF;
+    border: 1px solid #E8DCCF;
+    border-radius: 12px;
+}
+
+.cata-datos span {
+    color: #8A6D59;
+    font-family: Arial, sans-serif;
+    font-size: 0.65rem;
+    font-weight: bold;
+}
+
+.cata-datos strong {
+    color: #49382C;
+    font-size: 1.15rem;
+    line-height: 1.25;
+}
+
+.cata-datos > div:first-child strong {
+    color: #A65F3D;
+}
+
+.cata-datos small {
+    color: #8A6D59;
+    font-size: 0.75rem;
+}
+
+/* FORMULARIO */
+
+.cata-formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    min-width: 0;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    border: 1px solid #EEE4DA;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(73, 56, 44, 0.10);
+}
+
+.cata-formulario-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #E8DCCF;
+}
+
+.cata-formulario-cabecera h3 {
+    color: #49382C;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.cata-formulario-cabecera span {
+    flex-shrink: 0;
+    padding: 0.6rem 0.8rem;
+    background: #F8EDE9;
+    color: #A65F3D;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+}
+
+.cata-formulario-cabecera span strong {
+    font-size: inherit;
+}
+
+.campo-cata {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.campo-cata label {
+    color: #49382C;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.campo-cata input {
+    width: 100%;
+    min-width: 0;
+    padding: 0.8rem;
+    background: #FCFAF8;
+    border: 1px solid #E8DCCF;
+    border-radius: 8px;
+    color: #49382C;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+.campo-cata input:focus {
+    outline: 2px solid #D9B69E;
+    border-color: #A65F3D;
+}
+
+/* PRECIO Y BOTÓN */
+
+.cata-pie-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.cata-pie-formulario p {
+    margin: 0;
+    color: #8A6D59;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+}
+
+.cata-pie-formulario strong {
+    color: #49382C;
+}
+
+#reservar-cata {
+    padding: 0.85rem 1rem;
+    background: #49382C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#reservar-cata:hover {
+    background: #A65F3D;
+}
+
+#reservar-cata:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+#mensaje-cata {
+    min-height: 1.2rem;
+    margin: 0.7rem 0 0;
+    color: #687D5B;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+    .cata-semanal {
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 1.5rem;
+    }
+
+    .cata-fotografia {
+        grid-row: span 2;
+    }
+
+    .cata-formulario {
+        align-self: stretch;
+    }
+
+    .cata-informacion h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* MÓVILES */
+
+@media (max-width: 700px) {
+    .cata-semanal {
+        grid-template-columns: 1fr;
+        width: 92%;
+        padding: 1.2rem;
+        gap: 1.5rem;
+    }
+
+    .cata-fotografia {
+        grid-row: auto;
+    }
+
+    .cata-fotografia img {
+        height: 250px;
+        min-height: 250px;
+    }
+
+    .cata-informacion h2 {
+        font-size: 1.9rem;
+    }
+
+    .cata-datos {
+        grid-template-columns: 1fr;
+    }
+
+    .cata-formulario {
+        padding: 1.2rem;
+    }
+
+    .cata-pie-formulario {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #reservar-cata {
+        width: 100%;
+    }
+}
+
+
+/* AJUSTE FINO DE CATA SEMANAL */
+
+.cata-semanal {
+    align-items: center;
+}
+
+.cata-informacion {
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.cata-informacion h2 {
+    font-size: 1.9rem;
+    line-height: 1.15;
+    margin: 0.9rem 0;
+}
+
+.cata-informacion > p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.cata-datos {
+    gap: 0.55rem;
+    margin-top: 1rem;
+}
+
+.cata-datos > div {
+    padding: 0.75rem;
+    min-height: 90px;
+}
+
+.cata-datos strong {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.cata-datos span {
+    font-size: 0.62rem;
+}
